@@ -22,7 +22,7 @@ class NoInternetActivity :
 
     override fun initView() {
         super.initView()
-        isDisableWelcomeBack()
+        MyApplication.isEnableWB = false
 
         connectivityManager = getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
 
@@ -41,7 +41,7 @@ class NoInternetActivity :
             if (IsNetWork.haveNetworkConnection(this)) {
                 onBack()
             } else {
-                isDisableWelcomeBack()
+                MyApplication.isEnableWB = false
                 startActivity(Intent(Settings.ACTION_WIFI_SETTINGS))
             }
         }

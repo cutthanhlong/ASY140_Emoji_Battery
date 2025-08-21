@@ -1,5 +1,6 @@
 package com.example.basekotlin.ui.setting
 
+import com.example.basekotlin.MyApplication
 import com.example.basekotlin.base.BaseActivity
 import com.example.basekotlin.base.gone
 import com.example.basekotlin.base.setTintStatus
@@ -35,12 +36,12 @@ class SettingActivity : BaseActivity<ActivitySettingsBinding>(ActivitySettingsBi
             btnLanguage.tap { startNextActivity(LanguageActivity::class.java, null) }
 
             btnShare.tap {
-                isDisableWelcomeBack()
+                MyApplication.isEnableWB = false
                 shareApp()
             }
 
             btnRateUs.tap {
-                isDisableWelcomeBack()
+                MyApplication.isEnableWB = false
                 rateApp(btnRateUs)
             }
 

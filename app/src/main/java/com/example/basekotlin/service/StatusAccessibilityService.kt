@@ -14,7 +14,6 @@ import android.graphics.Path
 import android.graphics.PixelFormat
 import android.media.AudioManager
 import android.net.ConnectivityManager
-import android.net.NetworkCapabilities
 import android.net.NetworkInfo
 import android.net.wifi.WifiManager
 import android.os.Build
@@ -26,10 +25,10 @@ import android.provider.Settings
 import android.telephony.PhoneStateListener
 import android.telephony.SignalStrength
 import android.telephony.TelephonyManager
+import android.util.DisplayMetrics
 import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
-import android.view.View
 import android.view.WindowManager
 import android.view.WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE
 import android.view.accessibility.AccessibilityEvent
@@ -165,7 +164,7 @@ class StatusAccessibilityService : AccessibilityService(), OnPreferenceChangeLis
 
                 "android.net.conn.CONNECTIVITY_CHANGE" -> {
                     // Xử lý thay đổi kết nối mạng
-                    val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+                    val connectivityManager = getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
                     val activeNetwork = connectivityManager.activeNetworkInfo
 
                     when {
@@ -290,7 +289,7 @@ class StatusAccessibilityService : AccessibilityService(), OnPreferenceChangeLis
                     }
                 }
 
-                Intent.ACTION_USER_PRESENT ->{
+                Intent.ACTION_USER_PRESENT -> {
                     Log.e("TEST", "🔓 USER PRESENT - mở khoá thành công")
                     val keyguardManager =
                         context.getSystemService(KEYGUARD_SERVICE) as KeyguardManager
@@ -429,7 +428,7 @@ class StatusAccessibilityService : AccessibilityService(), OnPreferenceChangeLis
         }
     }
 
-    fun actionPresent(){
+    fun actionPresent() {
         val keyguardManager =
             appContext?.let { it.getSystemService(KEYGUARD_SERVICE) as KeyguardManager }
 
@@ -676,7 +675,6 @@ class StatusAccessibilityService : AccessibilityService(), OnPreferenceChangeLis
     }
 
     private fun switchAction(action: Int) {
-
         if (PrefManager.isEnableVibrate) {
             myVibrate()
         }
@@ -691,13 +689,45 @@ class StatusAccessibilityService : AccessibilityService(), OnPreferenceChangeLis
             7 -> showQuickSettings()
             8 -> showNotification()
             9 -> {
-                val intent = Intent("com.example.basekotlin.DATA_FROM_SERVICE")
-                intent.putExtra("scroll", "scroll")
-                sendBroadcast(intent)
+                handler.postDelayed({swipe()},50)
             }
         }
     }
 
+    private val handler = Handler(Looper.getMainLooper())
+    fun swipe(
+        onCompleted: (() -> Unit)? = null,
+        onCancelled: (() -> Unit)? = null
+    ): Boolean {
+        val wm = getSystemService(WINDOW_SERVICE) as WindowManager
+        val dm = DisplayMetrics()
+        @Suppress("DEPRECATION")
+        wm.defaultDisplay.getRealMetrics(dm)
+        val h = dm.heightPixels.toFloat()
+        val path = Path().apply {
+            moveTo(300f, h* 0.8f)
+            lineTo(300f, h * 0.2f)
+        }
+        val stroke = StrokeDescription(
+            path,
+            0,
+            50
+        )
+        val gesture = GestureDescription.Builder()
+            .addStroke(stroke).build()
+        Log.d(TAG, "swipe: start")
+        return dispatchGesture(gesture, object : GestureResultCallback() {
+            override fun onCompleted(gestureDescription: GestureDescription?) {
+                Log.d(TAG, "swipe: onCompleted: ")
+                onCompleted?.invoke()
+            }
+
+            override fun onCancelled(gestureDescription: GestureDescription?) {
+                Log.d(TAG, "swipe: onCancelled: ")
+                onCancelled?.invoke()
+            }
+        }, null)
+    }
 
     fun applyTemplate() {
         val templateValue = PrefManager.templateValue
@@ -859,7 +889,7 @@ class StatusAccessibilityService : AccessibilityService(), OnPreferenceChangeLis
         binding.icSignal.showState(!isAirplaneModeOn)
         binding.icData.showState(!isAirplaneModeOn)
 
-        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val connectivityManager = getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
         val activeNetwork = connectivityManager.activeNetworkInfo
 
         when {

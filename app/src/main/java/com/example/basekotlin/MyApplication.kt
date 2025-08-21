@@ -21,6 +21,8 @@ class MyApplication : Application(), Application.ActivityLifecycleCallbacks, Def
     companion object{
         @SuppressLint("StaticFieldLeak")
         lateinit var context: Context
+        var isEnableWB = true
+
     }
 
     private var currentActivity: Activity? = null
@@ -38,12 +40,14 @@ class MyApplication : Application(), Application.ActivityLifecycleCallbacks, Def
 
     override fun onStart(owner: LifecycleOwner) {
         super.onStart(owner)
+        if (isEnableWB)
         currentActivity?.apply {
             if (IsNetWork.haveNetworkConnection(this)) {
                 startActivity(Intent(this, WelcomeBackActivity::class.java))
             }
         }
     }
+
     override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
         TODO("Not yet implemented")
     }
@@ -53,7 +57,7 @@ class MyApplication : Application(), Application.ActivityLifecycleCallbacks, Def
     }
 
     override fun onActivityResumed(activity: Activity) {
-        TODO("Not yet implemented")
+        isEnableWB = true
     }
 
     override fun onActivityPaused(activity: Activity) {

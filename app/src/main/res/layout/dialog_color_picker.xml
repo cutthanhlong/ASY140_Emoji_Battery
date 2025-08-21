@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_radius_16"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/_12sdp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="3dp"
+            android:background="@drawable/bg_radius_100"
+            android:backgroundTint="#ACACAC" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_6sdp"
+            android:fontFamily="@font/inter_700"
+            android:includeFontPadding="false"
+            android:text="@string/icon_color"
+            android:textColor="@color/color_020007"
+            android:textSize="@dimen/_12ssp" />
+
+        <com.skydoves.colorpickerview.ColorPickerView
+            android:id="@+id/colorPickerView"
+            android:layout_width="@dimen/_225sdp"
+            android:layout_height="@dimen/_225sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            app:flag_alpha="1"
+            app:selector_alpha="1" />
+
+        <com.skydoves.colorpickerview.sliders.AlphaSlideBar
+            android:id="@+id/alphaSlideBar"
+            android:layout_width="@dimen/_225sdp"
+            android:layout_height="@dimen/_23sdp"
+            android:layout_marginTop="@dimen/_14sdp"
+            app:borderColor_AlphaSlideBar="@android:color/transparent"
+            app:selector_AlphaSlideBar="@drawable/colorpickerview_wheel" />
+
+        <com.skydoves.colorpickerview.sliders.BrightnessSlideBar
+            android:id="@+id/brightnessSlide"
+            android:layout_width="@dimen/_225sdp"
+            android:layout_height="@dimen/_23sdp"
+            android:layout_marginTop="@dimen/_24sdp"
+            app:borderColor_BrightnessSlider="#FFFFFF"
+            app:selector_BrightnessSlider="@drawable/colorpickerview_wheel" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_cancel"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_radius_100"
+                android:backgroundTint="#F3F3F3"
+                android:fontFamily="@font/inter_700"
+                android:gravity="center"
+                android:text="@string/cancel"
+                android:textColor="#3C3C3C"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:id="@+id/tv_save"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_radius_100_gradient"
+                android:fontFamily="@font/inter_700"
+                android:gravity="center"
+                android:text="@string/save"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/_12ssp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

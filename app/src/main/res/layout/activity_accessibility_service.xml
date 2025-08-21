@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/view_black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            android:id="@+id/status_bar"
+            layout="@layout/status_bar_view_black" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/view_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_radius_16_bottom"
+        android:elevation="@dimen/_2sdp"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/_12sdp"
+        android:paddingTop="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_2sdp">
+
+        <TextView
+            android:id="@+id/tv_tool_bar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginHorizontal="@dimen/_8sdp"
+            android:ellipsize="end"
+            android:fontFamily="@font/inter_600"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:singleLine="true"
+            android:text="@string/accessibility_service"
+            android:textColor="@color/color_020007"
+            android:textSize="@dimen/_18ssp" />
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_weight="1"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_12sdp"
+                android:fontFamily="@font/inter_400"
+                android:includeFontPadding="false"
+                android:text="@string/_1_select_installed_apps_or_downloaded_app_in_accessibility_setting"
+                android:textColor="@color/color_020007"
+                android:textSize="@dimen/_11ssp" />
+
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="184dp"
+                android:layout_marginVertical="@dimen/_12sdp"
+                android:background="@drawable/iv_how_to_use_page_1_1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_12sdp"
+                android:fontFamily="@font/inter_400"
+                android:includeFontPadding="false"
+                android:text="@string/_2_select_emoji_battery_battery_icon"
+                android:textColor="@color/color_020007"
+                android:textSize="@dimen/_11ssp" />
+
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="184dp"
+                android:layout_marginVertical="@dimen/_12sdp"
+                android:background="@drawable/iv_how_to_use_page_1_2" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_12sdp"
+                android:fontFamily="@font/inter_400"
+                android:includeFontPadding="false"
+                android:text="@string/_3_turn_on"
+                android:textColor="@color/color_020007"
+                android:textSize="@dimen/_11ssp" />
+
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="184dp"
+                android:layout_marginVertical="@dimen/_12sdp"
+                android:background="@drawable/iv_how_to_use_page_1_3" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="@dimen/_3sdp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="@dimen/_12sdp">
+
+        <TextView
+            android:id="@+id/tv_go_setting"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/bg_radius_100_gradient"
+            android:fontFamily="@font/inter_700"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="@string/go_to_settings"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12ssp" />
+
+    </LinearLayout>
+
+</LinearLayout>

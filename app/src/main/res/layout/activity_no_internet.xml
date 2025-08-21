@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/view_black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            android:id="@+id/status_bar"
+            layout="@layout/status_bar_view_black" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="182dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="112dp"
+        android:src="@drawable/ic_no_wifi" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_14sdp"
+        android:fontFamily="@font/inter_600"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="@string/whoop"
+        android:textColor="@color/color_020007"
+        android:textSize="@dimen/_18ssp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:fontFamily="@font/inter_400"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="@string/no_internet_connection_was_found_check_your_connection_or_try_again"
+        android:textColor="@color/color_020007"
+        android:textSize="@dimen/_12ssp" />
+
+    <TextView
+        android:id="@+id/tv_try_again"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_110sdp"
+        android:background="@drawable/bg_radius_100_gradient"
+        android:fontFamily="@font/inter_700"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="@string/try_again"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_12ssp" />
+
+
+</LinearLayout>

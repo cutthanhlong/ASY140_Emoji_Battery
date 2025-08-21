@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/view_black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            android:id="@+id/status_bar"
+            layout="@layout/status_bar_view_black" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/view_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_radius_16_bottom"
+        android:elevation="@dimen/_2sdp"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/_12sdp"
+        android:paddingTop="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_2sdp">
+
+        <ImageView
+            android:id="@+id/iv_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/tv_tool_bar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_8sdp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:fontFamily="@font/inter_600"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:singleLine="true"
+            android:text="@string/edit"
+            android:textColor="@color/color_020007"
+            android:textSize="@dimen/_18ssp" />
+
+        <ImageView
+            android:id="@+id/iv_right"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_guide" />
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/_12sdp"
+        android:layout_weight="1"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ln_service"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_12sdp"
+                android:background="@drawable/bg_radius_16"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/_12sdp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_status_bar_custom_battery"
+                    app:tint="#5D8800" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/inter_500"
+                        android:includeFontPadding="false"
+                        android:singleLine="true"
+                        android:text="@string/status_bar"
+                        android:textColor="@color/color_020007" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/inter_400"
+                        android:includeFontPadding="false"
+                        android:text="@string/the_custom_status_bar_will_not_appear_unless_permission_is_granted"
+                        android:textColor="@color/color_CC020007" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/iv_status"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_gesture_sw_sn" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_12sdp"
+                android:background="@drawable/bg_radius_16"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:padding="@dimen/_24sdp">
+
+                <ImageView
+                    android:id="@+id/iv_pin_bg"
+                    android:layout_width="180dp"
+                    android:layout_height="110dp"
+                    android:layout_centerInParent="true" />
+
+                <ImageView
+                    android:id="@+id/iv_pin"
+                    android:layout_width="180dp"
+                    android:layout_height="110dp"
+                    android:layout_centerInParent="true"
+                    android:scaleType="fitXY" />
+
+                <TextView
+                    android:id="@+id/tv_pin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/inter_700"
+                    android:includeFontPadding="false"
+                    android:text="100"
+                    android:textColor="#000E86"
+                    android:textSize="@dimen/_24ssp" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_12sdp"
+                android:background="@drawable/bg_radius_16"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:padding="@dimen/_12sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        android:src="@drawable/ic_status_bar_size" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/inter_500"
+                        android:includeFontPadding="false"
+                        android:text="@string/size"
+                        android:textColor="@color/color_020007"
+                        android:textSize="@dimen/_12ssp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:background="#DAD9DC" />
+
+                <TextView
+                    android:id="@+id/tv_percentage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_400"
+                    android:includeFontPadding="false"
+                    android:text="@string/percentage_s"
+                    android:textColor="@color/color_020007"
+                    android:textSize="@dimen/_11ssp" />
+
+                <SeekBar
+                    android:id="@+id/sb_percentage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_6sdp"
+                    android:max="30"
+                    android:maxHeight="6dp"
+                    android:min="5"
+                    android:minHeight="6dp"
+                    android:progress="0"
+                    android:progressDrawable="@drawable/seekbar_progress"
+                    android:thumb="@drawable/thumb_drawable" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/inter_500"
+                        android:gravity="start"
+                        android:includeFontPadding="false"
+                        android:text="5"
+                        android:textColor="@color/color_020007"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/inter_500"
+                        android:gravity="end"
+                        android:includeFontPadding="false"
+                        android:text="30"
+                        android:textColor="@color/color_020007"
+                        android:textSize="@dimen/_11ssp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_emoji_battery"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:fontFamily="@font/inter_400"
+                    android:includeFontPadding="false"
+                    android:text="@string/emoji_battery_s"
+                    android:textColor="@color/color_020007"
+                    android:textSize="@dimen/_11ssp" />
+
+                <SeekBar
+                    android:id="@+id/sb_emoji_battery"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_6sdp"
+                    android:max="50"
+                    android:maxHeight="6dp"
+                    android:min="5"
+                    android:minHeight="6dp"
+                    android:progress="0"
+                    android:progressDrawable="@drawable/seekbar_progress"
+                    android:thumb="@drawable/thumb_drawable" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/inter_500"
+                        android:gravity="start"
+                        android:includeFontPadding="false"
+                        android:text="5"
+                        android:textColor="@color/color_020007"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/inter_500"
+                        android:gravity="end"
+                        android:includeFontPadding="false"
+                        android:text="50"
+                        android:textColor="@color/color_020007"
+                        android:textSize="@dimen/_11ssp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginBottom="@dimen/_12sdp"
+                android:background="@drawable/bg_radius_16"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/_12sdp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_status_bar_show_percent"
+                    app:tint="#5D8800" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/inter_500"
+                    android:includeFontPadding="false"
+                    android:singleLine="true"
+                    android:text="@string/show_battery_percentage"
+                    android:textColor="@color/color_020007" />
+
+                <ImageView
+                    android:id="@+id/iv_show_percent"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_gesture_sw_sn" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginBottom="@dimen/_12sdp"
+                android:background="@drawable/bg_radius_16"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/_12sdp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_status_bar_appearance"
+                    app:tint="#5D8800" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/inter_500"
+                    android:includeFontPadding="false"
+                    android:singleLine="true"
+                    android:text="@string/percentage_color"
+                    android:textColor="@color/color_020007" />
+
+                <RelativeLayout
+                    android:id="@+id/btn_color"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp">
+
+                    <ImageView
+                        android:id="@+id/iv_color"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/bg_radius_100"
+                        app:tint="@color/white" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/bg_radius_100_stroke_01" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_6sdp"
+                android:fontFamily="@font/inter_400"
+                android:includeFontPadding="false"
+                android:text="@string/battery"
+                android:textColor="@color/color_020007"
+                android:textSize="@dimen/_11ssp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcv_battery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_12sdp"
+                android:background="@drawable/bg_radius_16"
+                android:orientation="horizontal"
+                android:overScrollMode="never"
+                android:padding="@dimen/_12sdp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_emoji_battery_edit" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_6sdp"
+                android:fontFamily="@font/inter_400"
+                android:includeFontPadding="false"
+                android:text="@string/emoji"
+                android:textColor="@color/color_020007"
+                android:textSize="@dimen/_11ssp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcv_emoji"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_radius_16"
+                android:orientation="horizontal"
+                android:overScrollMode="never"
+                android:padding="@dimen/_12sdp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_emoji_battery_edit" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

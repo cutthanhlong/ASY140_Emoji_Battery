@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ViewFlipper
+        android:id="@+id/view_flipper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_12sdp"
+                    android:fontFamily="@font/inter_400"
+                    android:includeFontPadding="false"
+                    android:text="@string/_1_select_installed_apps_or_downloaded_app_in_accessibility_setting"
+                    android:textColor="@color/color_020007"
+                    android:textSize="@dimen/_11ssp" />
+
+                <ImageView
+                    android:layout_width="300dp"
+                    android:layout_height="184dp"
+                    android:layout_marginVertical="@dimen/_12sdp"
+                    android:background="@drawable/iv_how_to_use_page_1_1" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_12sdp"
+                    android:fontFamily="@font/inter_400"
+                    android:includeFontPadding="false"
+                    android:text="@string/_2_select_emoji_battery_battery_icon"
+                    android:textColor="@color/color_020007"
+                    android:textSize="@dimen/_11ssp" />
+
+                <ImageView
+                    android:layout_width="300dp"
+                    android:layout_height="184dp"
+                    android:layout_marginVertical="@dimen/_12sdp"
+                    android:background="@drawable/iv_how_to_use_page_1_2" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_12sdp"
+                    android:fontFamily="@font/inter_400"
+                    android:includeFontPadding="false"
+                    android:text="@string/_3_turn_on"
+                    android:textColor="@color/color_020007"
+                    android:textSize="@dimen/_11ssp" />
+
+                <ImageView
+                    android:layout_width="300dp"
+                    android:layout_height="184dp"
+                    android:layout_marginVertical="@dimen/_12sdp"
+                    android:background="@drawable/iv_how_to_use_page_1_3" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="240dp"
+                android:layout_height="200dp"
+                android:background="@drawable/iv_how_to_use_page_2_1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_24sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:fontFamily="@font/inter_500"
+                android:gravity="center"
+                android:text="@string/why_does_the_application_need_accessibility_service"
+                android:textColor="@color/color_020007"
+                android:textSize="@dimen/_14ssp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_400"
+                android:text="@string/this_app_need_to_be_activated_in_accessibility_service_to_show_custom_status_bar_view_on_top_of_phone_screen_amp_start_several_accessibility_actions_action_to_home_back_show_recent_screen_this_application_do_not_collect_or_share_any_user_data"
+                android:textColor="@color/color_020007"
+                android:textSize="@dimen/_11ssp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="162dp"
+                android:layout_height="210dp"
+                android:background="@drawable/iv_how_to_use_page_3_1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_24sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:fontFamily="@font/inter_500"
+                android:gravity="center"
+                android:text="@string/supported_gestures_in_the_app"
+                android:textColor="@color/color_020007"
+                android:textSize="@dimen/_14ssp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_400"
+                android:text="@string/take_screenshot_quick_scroll_to_top_open_control_center_open_notification_back_home_recent_action_power_options_lock_screen"
+                android:textColor="@color/color_020007"
+                android:textSize="@dimen/_11ssp" />
+
+        </LinearLayout>
+
+    </ViewFlipper>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

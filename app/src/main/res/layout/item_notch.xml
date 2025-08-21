@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/_18sdp">
+
+    <RelativeLayout
+        android:id="@+id/bg_notch"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_radius_16_top_notch_s"
+        app:layout_constraintDimensionRatio="3.8:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_notch"
+            android:layout_width="match_parent"
+            android:layout_height="27dp"
+            android:src="@drawable/notch_data_00" />
+
+        <TextView
+            android:id="@+id/tv_hide"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:fontFamily="@font/inter_700"
+            android:includeFontPadding="false"
+            android:text="@string/hide_notch"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_18ssp"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

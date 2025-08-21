@@ -1,6 +1,7 @@
 package com.example.basekotlin.ui.splash
 
 import androidx.lifecycle.lifecycleScope
+import com.example.basekotlin.MyApplication
 import com.example.basekotlin.R
 import com.example.basekotlin.base.BaseActivity
 import com.example.basekotlin.base.setTintStatus
@@ -18,7 +19,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(ActivitySplashBinding
 
     override fun initView() {
         SharedPreUtils.getInstance().setCountOpenApp(this)
-
+        MyApplication.isEnableWB= false
         lifecycleScope.launch {
             for (i in 1..100) {
                 binding.pbLoading.progress = i
@@ -34,5 +35,9 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(ActivitySplashBinding
         finishAffinity()
     }
 
+    override fun onResume() {
+        super.onResume()
+        MyApplication.isEnableWB= false
+    }
     override fun onBack() {}
 }

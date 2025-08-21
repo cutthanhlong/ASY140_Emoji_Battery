@@ -59,6 +59,7 @@ class NoInternetActivity :
     }
 
     override fun onResume() {
+        MyApplication.isEnableWB = false
         super.onResume()
         binding.statusBar.status.setTintStatus(EnumStatusColor.BACKGROUND, this)
     }

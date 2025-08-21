@@ -1,5 +1,6 @@
 package com.example.basekotlin.ui.welcome_back
 
+import com.example.basekotlin.MyApplication
 import com.example.basekotlin.base.BaseActivity
 import com.example.basekotlin.base.showState
 import com.example.basekotlin.base.tap
@@ -13,6 +14,7 @@ class WelcomeBackActivity :
     override fun initView() {
         super.initView()
 
+        MyApplication.isEnableWB = false
         if (PermissionManager.checkFullPermission(this)) {
             StatusAccessibilityService.instance?.actionPresent()
         }
@@ -30,6 +32,7 @@ class WelcomeBackActivity :
     override fun onResume() {
         super.onResume()
         binding.statusBar.status.showState(PermissionManager.checkFullPermission(this))
+        MyApplication.isEnableWB = false
     }
 
 }

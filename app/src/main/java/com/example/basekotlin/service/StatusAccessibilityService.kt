@@ -10,6 +10,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.content.res.ColorStateList
+import android.graphics.Color
 import android.graphics.Path
 import android.graphics.PixelFormat
 import android.media.AudioManager
@@ -32,6 +33,7 @@ import android.view.LayoutInflater
 import android.view.WindowManager
 import android.view.WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE
 import android.view.accessibility.AccessibilityEvent
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.NotificationCompat
@@ -699,14 +701,10 @@ class StatusAccessibilityService : AccessibilityService(), OnPreferenceChangeLis
         onCompleted: (() -> Unit)? = null,
         onCancelled: (() -> Unit)? = null
     ): Boolean {
-        val wm = getSystemService(WINDOW_SERVICE) as WindowManager
-        val dm = DisplayMetrics()
-        @Suppress("DEPRECATION")
-        wm.defaultDisplay.getRealMetrics(dm)
-        val h = dm.heightPixels.toFloat()
+
         val path = Path().apply {
-            moveTo(300f, h* 0.8f)
-            lineTo(300f, h * 0.2f)
+            moveTo(150f, (screenHeight * 0.2f))
+            lineTo(150f, (screenHeight * 0.8f))
         }
         val stroke = StrokeDescription(
             path,

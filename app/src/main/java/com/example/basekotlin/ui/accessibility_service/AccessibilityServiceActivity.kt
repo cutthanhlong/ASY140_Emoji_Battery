@@ -14,7 +14,6 @@ class AccessibilityServiceActivity :
     override fun bindView() {
         super.bindView()
         binding.tvGoSetting.tap {
-            isDisableWelcomeBack()
             startToMain.launch(PermissionManager.enableAccessibility(this))
         }
     }

@@ -22,7 +22,6 @@ class MyApplication : Application(), Application.ActivityLifecycleCallbacks, Def
         @SuppressLint("StaticFieldLeak")
         lateinit var context: Context
         var isEnableWB = true
-
     }
 
     private var currentActivity: Activity? = null
@@ -49,11 +48,10 @@ class MyApplication : Application(), Application.ActivityLifecycleCallbacks, Def
     }
 
     override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
-        TODO("Not yet implemented")
+        currentActivity = activity
     }
 
     override fun onActivityStarted(activity: Activity) {
-        currentActivity = activity
     }
 
     override fun onActivityResumed(activity: Activity) {
@@ -61,19 +59,15 @@ class MyApplication : Application(), Application.ActivityLifecycleCallbacks, Def
     }
 
     override fun onActivityPaused(activity: Activity) {
-        TODO("Not yet implemented")
     }
 
     override fun onActivityStopped(activity: Activity) {
-        TODO("Not yet implemented")
     }
 
     override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) {
-        TODO("Not yet implemented")
     }
 
     override fun onActivityDestroyed(activity: Activity) {
-        TODO("Not yet implemented")
     }
 
 

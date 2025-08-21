@@ -28,10 +28,6 @@ abstract class BaseActivity<VB : ViewBinding>(val bindingFactory: (LayoutInflate
 
     protected val binding: VB by lazy { bindingFactory(layoutInflater) }
 
-    var is_resume: Boolean = false
-    var is_show_ads: Boolean = false
-    var welcomeBackIsShowing = false
-
     override fun onCreate(savedInstanceState: Bundle?) {
         SystemUtil.setLocale(this)
         super.onCreate(savedInstanceState)
@@ -84,7 +80,6 @@ abstract class BaseActivity<VB : ViewBinding>(val bindingFactory: (LayoutInflate
     }
 
     open fun getData() {
-        is_show_ads = false
     }
 
     open fun initView() {
@@ -101,7 +96,6 @@ abstract class BaseActivity<VB : ViewBinding>(val bindingFactory: (LayoutInflate
 
 
     fun startNextActivity(activity: Class<*>?, bundle: Bundle?) {
-        is_show_ads = true
         var bundle = bundle
         val intent = Intent(this, activity)
         if (bundle == null) {
@@ -122,55 +116,6 @@ abstract class BaseActivity<VB : ViewBinding>(val bindingFactory: (LayoutInflate
     fun finishThisActivity() {
         finish()
         overridePendingTransition(R.anim.in_left, R.anim.out_right)
-    }
-
-    private var resultLauncherResume: ActivityResultLauncher<Intent> =
-        registerForActivityResult(
-            StartActivityForResult()
-        ) { result: ActivityResult ->
-            if (result.resultCode == 2572) {
-                is_resume = false
-                is_show_ads = false
-
-                lifecycleScope.launch {
-                    delay(500)
-                    welcomeBackIsShowing = false
-                }
-            }
-        }
-
-    override fun onResume() {
-        super.onResume()
-        if (IsNetWork.haveNetworkConnection(this)) {
-            if (!welcomeBackIsShowing){
-                if (is_show_ads) {
-                    is_show_ads = false
-                } else {
-                    if (is_resume) {
-                        is_show_ads = false
-                        welcomeBackIsShowing = true
-                        resultLauncherResume.launch(
-                            Intent(
-                                this@BaseActivity,
-                                WelcomeBackActivity::class.java
-                            ).apply {
-                                flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-                            }
-                        )
-                    }
-                }
-            }
-        }
-    }
-
-    fun isDisableWelcomeBack() {
-        is_show_ads = true
-        is_resume = false
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-        is_resume = true
     }
 
     open fun onBack() {
